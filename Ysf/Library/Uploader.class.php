@@ -12,7 +12,7 @@ class Uploader {
 	{
 		if ($name) {
 			if (isset($_FILES[$name])) {
-				$this->_upload($name);
+				return $this->_upload($name);
 			}else{
 				return false;
 			}
@@ -35,13 +35,13 @@ class Uploader {
 	}
 
 	private function _upload($name){
+		if ($_FILES[$name]['size']>$this->config['filesize']) {
+			$this->error[$name] = 'too large size';
+			return false;
+		}
 		$ext = pathinfo($_FILES[$name]['name'])['extension'];
 		if ($this->checkExt($ext)==false) {
 			$this->error[$name] = 'ext is not allow';
-			return false;
-		}
-		if ($_FILES[$name]['size']>$this->config['filesize']) {
-			$this->error[$name] = 'too large size';
 			return false;
 		}
 		$savepath = $this->savepath($_FILES[$name]['tmp_name'],$ext);

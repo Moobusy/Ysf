@@ -64,12 +64,12 @@ class Model
 		return $this->db->insert($table, $data, true);
 	}
 	
-	public function replace()
+	public function replace($table, $data)
 	{
 		return $this->db->insert($table, $data, false, true);
 	}
 	
-	public function replace_all()
+	public function replace_all($table, $data)
 	{
 		return $this->db->insert($table, $data, true, true);
 	}
