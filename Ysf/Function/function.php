@@ -146,7 +146,7 @@ function authcode($string, $operation = 'DECODE', $key = '', $expiry = 0) {
 	$string_length = strlen($string);  
 	$result = '';  
 	$box = range(0, 255);  
-	$rndkey = array();  
+	$rndkey = [];  
 	// 产生密匙簿  
 	for($i = 0; $i <= 255; $i++) {  
 		$rndkey[$i] = ord($cryptkey[$i % $key_length]);  
@@ -194,7 +194,7 @@ function authcode($string, $operation = 'DECODE', $key = '', $expiry = 0) {
  */
 function pagination($count,$limit,$page,$maxshow=20,$url='')
 {
-	$result = array();
+	$result = [];
 
 	if (empty($url)) {
 		$url = '//'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
@@ -209,7 +209,7 @@ function pagination($count,$limit,$page,$maxshow=20,$url='')
 			}
 		}
 	}else{
-		$_url['query'] = array();
+		$_url['query'] = [];
 	}
 
 	$url = '//' . $_url['host'] . (isset($_url['path']) ? $_url['path'] : '/') . '?' ;
