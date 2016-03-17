@@ -1,8 +1,10 @@
 #Ysf PHP Framework
 
-PHP5.5 +
-模板引擎使用smarty
-数据库连接使用更加安全的PDO
+###PHP5.5 +
+
+###模板引擎使用smarty
+
+###数据库连接使用更加安全的PDO
 
 还在逐步完成.:bowtie:
 
@@ -31,3 +33,13 @@ PHP5.5 +
         cache             项目文件缓存
         log               项目日志
         template          项目模板缓存
+##入口文件
+```
+<?php 
+define('APP_MODE','DEV');
+define('PUBLIC_PATH',dirname(__FILE__));
+define('TOP_PATH',dirname(PUBLIC_PATH));
+
+include '../Ysf/Ysf.php';
+?>
+```
